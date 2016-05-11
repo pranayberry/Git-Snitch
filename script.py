@@ -12,7 +12,7 @@ def scrape(url):
 def fname(page):
 	return page.find('div','vcard-fullname').string
 
-def contribution(page):
+def displayContribution(page):
 	i = 0
 	print "\nContribution Summary\n"
 	print "Date\t\t\tNo of Contributions"
@@ -26,7 +26,6 @@ def contribution(page):
 				print properties['data-count']
 		i += 1
 
-
 def display(url):
 	page = scrape(url)
 	if page == None:
@@ -36,7 +35,7 @@ def display(url):
 		#print "\n******************************************************"
 		print "\n",fullName
 		print "@%s" % username
-		contribution(page)
+		displayContribution(page)
 
 
 username = raw_input("Enter github username\n> ")
